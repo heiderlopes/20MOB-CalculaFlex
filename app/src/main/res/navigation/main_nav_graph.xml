@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        tools:layout="@layout/fragment_better_fuel"
+        android:id="@+id/betterFuelFragment"
+        android:name="br.com.calculaflex.presentation.betterfuel.BetterFuelFragment"
+        android:label="BetterFuelFragment" />
+
+    <fragment
+        tools:layout="@layout/fragment_profile"
+        android:id="@+id/profileFragment"
+        android:name="br.com.calculaflex.presentation.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+
+    <fragment
+        tools:layout="@layout/fragment_home"
+        android:id="@+id/homeFragment"
+        android:name="br.com.calculaflex.presentation.home.HomeFragment"
+        android:label="HomeFragment" />
+    <include app:graph="@navigation/login_nav_graph" />
+</navigation>

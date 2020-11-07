@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splash_text_size">32sp</dimen>
+    <dimen name="link_font_size">16sp</dimen>
+    <dimen name="header_font_size">16sp</dimen>
+</resources>

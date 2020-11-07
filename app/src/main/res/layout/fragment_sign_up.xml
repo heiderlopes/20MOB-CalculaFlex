@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tvSubTitleSignUp">
+
+    <LinearLayout
+        android:padding="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivLogoApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_logo_login"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvAppName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="48dp"
+                android:fontFamily="@font/helvetica_neue"
+                android:text="@string/app_name"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/ivLogoApp"
+                app:layout_constraintTop_toTopOf="@+id/ivLogoApp" />
+
+            <TextView
+                android:id="@+id/tvSubTitleSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/signup_subtitle"
+                android:textColor="#9EB0BC"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tvAppName"
+                app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout style="@style/container_edit_text">
+
+                <TextView
+                    style="@style/label_edit_text"
+                    android:text="@string/label_username" />
+
+                <EditText
+                    android:id="@+id/etUserNameSignUp"
+                    style="@style/field_edit_text"
+                    tools:text="Heider Lopes" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/container_edit_text">
+
+                <TextView
+                    style="@style/label_edit_text"
+                    android:text="@string/label_email" />
+
+                <EditText
+                    android:id="@+id/etEmailSignUp"
+                    style="@style/field_edit_text"
+                    tools:text="heiderlopes@apps.com.br" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/container_edit_text">
+
+                <TextView
+                    style="@style/label_edit_text"
+                    android:text="@string/label_phone" />
+
+                <EditText
+                    android:id="@+id/etPhoneSignUp"
+                    style="@style/field_edit_text"
+                    tools:text="(11) 999999-999" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/container_edit_text">
+
+                <TextView
+                    style="@style/label_edit_text"
+                    android:text="@string/label_password" />
+
+                <EditText
+                    android:id="@+id/etPasswordSignUp"
+                    style="@style/field_edit_text"
+                    android:inputType="textPassword"
+                    tools:text="xxxxxx" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/cbTermsSignUp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_rawRes="@raw/checkbox_animated" />
+
+                <TextView
+                    android:layout_marginTop="0dp"
+                    android:id="@+id/tvTerms"
+                    style="@style/link"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/label_accept_terms"
+                    app:layout_constraintBottom_toBottomOf="@+id/cbTermsSignUp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cbTermsSignUp"
+                    app:layout_constraintTop_toTopOf="@+id/cbTermsSignUp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btCreateAccount"
+                android:text="@string/button_create_account"
+                style="@style/button"/>
+
+            <TextView
+                android:id="@+id/btLoginSignUp"
+                style="@style/link"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:text="@string/button_i_have_account" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

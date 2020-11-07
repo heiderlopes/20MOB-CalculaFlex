@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Calcula Flex</string>
+
+    <string name="menu_home_home">Home</string>
+    <string name="menu_home_profile">Perfil</string>
+
+    <string name="home_select_options">Selecione o que deseja calcular</string>
+
+    <string name="label_username">SEU NOME</string>
+    <string name="label_phone">TELEFONE</string>
+    <string name="label_email">E-MAIL</string>
+    <string name="label_password">SENHA</string>
+    <string name="label_accept_terms">Li e aceitos os termos</string>
+    <string name="label_terms">Termos de uso</string>
+
+    <string name="label_create_account">Criar minha conta</string>
+    <string name="label_reset_password">Esqueci minha senha</string>
+
+    <string name="logo_app_content_desc">Logo app</string>
+    <string name="button_login">Conectar</string>
+    <string name="button_create_account">Criar conta</string>
+    <string name="button_i_have_account">Já tenho conta</string>
+
+    <string name="login_subtitle">Faça o login para continuar</string>
+
+    <string name="signup_subtitle">Preencha os dados da sua conta</string>
+
+
+    <string name="loading_message_processing">Processando ...</string>
+
+</resources>
