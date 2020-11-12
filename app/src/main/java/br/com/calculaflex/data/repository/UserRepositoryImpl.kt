@@ -1,6 +1,7 @@
 package br.com.calculaflex.data.repository
 
 import br.com.calculaflex.data.remote.datasource.UserRemoteDataSource
+import br.com.calculaflex.domain.entity.NewUser
 import br.com.calculaflex.domain.entity.RequestState
 import br.com.calculaflex.domain.entity.User
 import br.com.calculaflex.domain.entity.UserLogin
@@ -16,6 +17,10 @@ class UserRepositoryImpl(
 
     override suspend fun doLogin(userLogin: UserLogin): RequestState<User> {
         return userRemoteDataSource.doLogin(userLogin)
+    }
+
+    override suspend fun create(newUser: NewUser): RequestState<User> {
+        return userRemoteDataSource.create(newUser)
     }
 
 }
