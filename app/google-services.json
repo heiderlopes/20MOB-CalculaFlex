@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "809175294580",
+    "firebase_url": "https://calculadora-flex-20mob.firebaseio.com",
+    "project_id": "calculadora-flex-20mob",
+    "storage_bucket": "calculadora-flex-20mob.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809175294580:android:76b39eb3f57d8d31a9a721",
+        "android_client_info": {
+          "package_name": "br.com.calculaflex.heiderlopes20mob"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809175294580-3rm99101acn9pgd26htenrefd292grtu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6ApFKmNmgNjbEc0URQ0tas3L2Wq9ythc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809175294580-3rm99101acn9pgd26htenrefd292grtu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

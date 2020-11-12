@@ -4,17 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import br.com.calculaflex.R
-import br.com.calculaflex.data.remote.datasource.UserRemoteFakeDataSourceImpl
+import br.com.calculaflex.data.remote.datasource.UserRemoteFirebaseDataSourceImpl
 import br.com.calculaflex.data.repository.UserRepositoryImpl
 import br.com.calculaflex.domain.entity.RequestState
 import br.com.calculaflex.domain.usecases.GetUserLoggedUseCase
 import br.com.calculaflex.presentation.base.BaseFragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 const val NAVIGATION_KEY = "NAV_KEY"
@@ -28,7 +30,7 @@ abstract class BaseAuthFragment : BaseFragment() {
             BaseViewModelFactory(
                 GetUserLoggedUseCase(
                     UserRepositoryImpl(
-                        UserRemoteFakeDataSourceImpl()
+                        UserRemoteFirebaseDataSourceImpl(Firebase.auth)
                     )
                 )
             )
