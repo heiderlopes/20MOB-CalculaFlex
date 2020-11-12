@@ -1,16 +1,19 @@
 package br.com.calculaflex.data.remote.datasource
 
+import br.com.calculaflex.data.remote.mapper.NewUserFirebasePayloadMapper
 import br.com.calculaflex.domain.entity.NewUser
 import br.com.calculaflex.domain.entity.RequestState
 import br.com.calculaflex.domain.entity.User
 import br.com.calculaflex.domain.entity.UserLogin
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.tasks.await
 import java.lang.Exception
 
 class UserRemoteFirebaseDataSourceImpl(
-    private val mAuth: FirebaseAuth
+    private val mAuth: FirebaseAuth,
+    private val firebaseFirestore: FirebaseFirestore
 )
     : UserRemoteDataSource {
 
@@ -47,12 +50,29 @@ class UserRemoteFirebaseDataSourceImpl(
     }
 
     override suspend fun create(newUser: NewUser): RequestState<User> {
-        return try{
+        return try {
             mAuth.createUserWithEmailAndPassword(newUser.email, newUser.password).await()
-            RequestState.Success(User(newUser.name))
+
+            val userId = mAuth.currentUser?.uid
+            if (userId == null) {
+
+                RequestState.Error(java.lang.Exception("Não foi possível criar a conta"))
+
+            } else {
+
+                val newUserFirebasePayload =
+                    NewUserFirebasePayloadMapper.mapToNewUserFirebasePayload(newUser)
+
+                firebaseFirestore
+                    .collection("users")
+                    .document(userId)
+                    .set(newUserFirebasePayload)
+                    .await()
+
+                RequestState.Success(NewUserFirebasePayloadMapper.mapToUser(newUserFirebasePayload))
+            }
         } catch (e: java.lang.Exception) {
             RequestState.Error(e)
         }
     }
-
 }

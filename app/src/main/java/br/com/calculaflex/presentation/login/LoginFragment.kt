@@ -21,6 +21,7 @@ import br.com.calculaflex.presentation.base.BaseFragment
 import br.com.calculaflex.presentation.base.auth.BaseAuthFragment
 import br.com.calculaflex.presentation.base.auth.NAVIGATION_KEY
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -45,7 +46,10 @@ class LoginFragment : BaseFragment() {
             LoginViewModelFactory(
                 LoginUseCase(
                     UserRepositoryImpl(
-                        UserRemoteFirebaseDataSourceImpl(Firebase.auth)
+                        UserRemoteFirebaseDataSourceImpl(
+                            Firebase.auth,
+                            Firebase.firestore
+                        )
                     )
                 ))
         ).get(LoginViewModel::class.java)
