@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/update_app_nav_graph"
+    app:startDestination="@id/updateAppFragment">
+
+    <fragment
+        tools:layout="@layout/fragment_update_app"
+        android:id="@+id/updateAppFragment"
+        android:name="br.com.calculaflex.presentation.updateapp.UpdateAppFragment"
+        android:label="UpdateAppFragment" />
+</navigation>
