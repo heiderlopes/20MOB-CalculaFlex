@@ -76,5 +76,7 @@ dependencies {
 
     implementation 'br.com.concrete:canarinho:2.0.1'
 
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 
 }

@@ -1,5 +1,8 @@
 package br.com.calculaflex.domain.entity
 
 data class User(
-    val name:String
+    var id: String = "",
+    val name: String = "",
+    val email: String = "",
+    val phone: String = ""
 )

@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/FullScreen">
         <activity android:name=".presentation.main.MainActivity">
+
+            <nav-graph android:value="@navigation/main_nav_graph" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

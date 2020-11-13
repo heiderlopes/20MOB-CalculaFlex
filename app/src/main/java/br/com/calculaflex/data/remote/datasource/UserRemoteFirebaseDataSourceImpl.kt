@@ -26,7 +26,15 @@ class UserRemoteFirebaseDataSourceImpl(
         return if(firebaseUser == null) {
             RequestState.Error(Exception("Usuário não logado"))
         } else {
-            RequestState.Success(User(firebaseUser.displayName ?: ""))
+            val user = firebaseFirestore.collection("users")
+                .document(firebaseUser.uid).get().await().toObject(User::class.java)
+
+            if(user == null) {
+                RequestState.Error(java.lang.Exception("Usuário não encontrado"))
+            } else {
+                user.id = firebaseUser.uid
+                RequestState.Success(user)
+            }
         }
 
     }
