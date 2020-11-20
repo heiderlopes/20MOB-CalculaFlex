@@ -15,13 +15,16 @@
             app:destination="@id/signUpFragment" />
     </fragment>
     <fragment
-        tools:layout="@layout/fragment_sign_up"
         android:id="@+id/signUpFragment"
         android:name="br.com.calculaflex.presentation.signup.SignUpFragment"
-        android:label="SignUpFragment" >
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up">
         <action
             android:id="@+id/action_signUpFragment_to_termsFragment"
             app:destination="@id/termsFragment" />
+        <deepLink
+            android:id="@+id/deepLink2"
+            app:uri="https://www.calculaflex.com.br/signup" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_terms"

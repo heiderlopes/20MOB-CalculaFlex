@@ -50,7 +50,7 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-config-ktx:20.0.0'
 
-
+    implementation 'com.google.firebase:firebase-messaging-ktx:21.0.0'
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
