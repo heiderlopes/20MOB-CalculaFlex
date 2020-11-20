@@ -15,6 +15,7 @@ import br.com.calculaflex.data.repository.UserRepositoryImpl
 import br.com.calculaflex.domain.entity.RequestState
 import br.com.calculaflex.domain.entity.enums.FuelType
 import br.com.calculaflex.domain.usecases.CalculateBetterFuelUseCase
+import br.com.calculaflex.domain.usecases.GetCarUseCase
 import br.com.calculaflex.domain.usecases.GetUserLoggedUseCase
 import br.com.calculaflex.domain.usecases.SaveCarUseCase
 import br.com.calculaflex.domain.utils.FuelCalculator
@@ -63,6 +64,13 @@ class BetterFuelFragment : BaseAuthFragment() {
                 ),
                 CalculateBetterFuelUseCase(
                     FuelCalculator()
+                ),
+                GetCarUseCase(
+                    CarRepositoryImpl(
+                        CarRemoteFirebaseDataSourceImpl(
+                            Firebase.firestore
+                        )
+                    )
                 )
             )
         ).get(BetterFuelViewModel::class.java)
@@ -74,6 +82,8 @@ class BetterFuelFragment : BaseAuthFragment() {
         setUpListener()
 
         registerObserver()
+
+        betterFuelViewModel.getCar(arguments?.getString("id") ?: "")
     }
 
     private fun setUpView(view: View) {
@@ -102,6 +112,8 @@ class BetterFuelFragment : BaseAuthFragment() {
                 etPriceEthanol.getDouble()
             )
         }
+
+        btClear.setOnClickListener { clearFields() }
     }
 
     private fun registerObserver() {
@@ -126,5 +138,35 @@ class BetterFuelFragment : BaseAuthFragment() {
                 }
             }
         })
+
+
+        betterFuelViewModel.carSelectedState.observe(viewLifecycleOwner, Observer {
+            when (it) {
+                is RequestState.Success -> {
+                    val car = it.data
+                    etCar.setText(car.vehicle)
+                    etKmGasoline.setText(car.kmGasolinePerLiter.toString())
+                    etKmEthanol.setText(car.kmEthanolPerLiter.toString())
+                    etPriceGasoline.setText(car.priceGasolinePerLiter.toString())
+                    etPriceEthanol.setText(car.priceEthanolPerLiter.toString())
+                    hideLoading()
+
+                }
+                is RequestState.Error -> {
+                    hideLoading()
+                }
+                is RequestState.Loading -> {
+                    showLoading("Aguarde um momento")
+                }
+            }
+        })
+    }
+
+    private fun clearFields() {
+        etCar.setText("")
+        etKmGasoline.setText("")
+        etKmEthanol.setText("")
+        etPriceGasoline.setText("")
+        etPriceEthanol.setText("")
     }
 }

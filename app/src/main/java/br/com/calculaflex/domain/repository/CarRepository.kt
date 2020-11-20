@@ -7,4 +7,5 @@ interface CarRepository {
 
     suspend fun save(car: Car): RequestState<Car>
 
+    suspend fun findBy(id: String): RequestState<Car>
 }

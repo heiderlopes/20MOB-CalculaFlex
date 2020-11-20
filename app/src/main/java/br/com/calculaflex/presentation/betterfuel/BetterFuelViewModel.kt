@@ -8,16 +8,27 @@ import br.com.calculaflex.domain.entity.RequestState
 import br.com.calculaflex.domain.entity.enums.FuelType
 import br.com.calculaflex.domain.entity.holder.BetterFuelHolder
 import br.com.calculaflex.domain.usecases.CalculateBetterFuelUseCase
+import br.com.calculaflex.domain.usecases.GetCarUseCase
+import br.com.calculaflex.domain.usecases.GetUserLoggedUseCase
 import br.com.calculaflex.domain.usecases.SaveCarUseCase
 import kotlinx.coroutines.launch
 
 class BetterFuelViewModel (
     private val saveCarUseCase: SaveCarUseCase,
-    private val calculateBetterFuelUseCase: CalculateBetterFuelUseCase
+    private val calculateBetterFuelUseCase: CalculateBetterFuelUseCase,
+    private val getCarUseCase: GetCarUseCase
 ): ViewModel() {
 
     var calculateState = MutableLiveData<RequestState<FuelType>>()
     var saveCarState = MutableLiveData<RequestState<FuelType>>()
+
+    val carSelectedState = MutableLiveData<RequestState<Car>>()
+
+    fun getCar(id: String) {
+        viewModelScope.launch {
+            carSelectedState.value = getCarUseCase.findBy(id)
+        }
+    }
 
     fun calculateBetterFuel(
         vehicle: String,

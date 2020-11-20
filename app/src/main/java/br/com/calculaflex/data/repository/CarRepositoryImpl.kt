@@ -13,4 +13,8 @@ class CarRepositoryImpl(
         return carRemoteDataSource.save(car)
     }
 
+    override suspend fun findBy(id: String): RequestState<Car> {
+        return carRemoteDataSource.findBy(id)
+    }
+
 }

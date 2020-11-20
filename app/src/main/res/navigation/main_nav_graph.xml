@@ -9,9 +9,11 @@
         android:name="br.com.calculaflex.presentation.betterfuel.BetterFuelFragment"
         android:label="BetterFuelFragment"
         tools:layout="@layout/fragment_better_fuel">
+
         <deepLink
             android:id="@+id/deepLink"
-            app:uri="https://www.calculaflex.com.br/betterfuel" />
+            app:uri="https://www.calculaflex.com.br/betterfuel?id={id}" />
+
     </fragment>
 
     <fragment

@@ -135,6 +135,9 @@ class HomeFragment : BaseAuthFragment() {
                 "SIGN_OUT" -> {
                     //chamar o metodo de logout
                 }
+                "ETHANOL_OR_GASOLINE" -> {
+                    startDeeplink("${item.action.deeplink}?id=${homeViewModel.userLogged?.id}")
+                }
                 else -> {
                     startDeeplink(item.action.deeplink)
                 }
