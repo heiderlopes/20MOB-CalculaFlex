@@ -1,10 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
 
-</LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="136dp"
+        android:background="@drawable/shape_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvHomeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/helvetica_neue"
+            android:text="@string/app_name"
+            android:textColor="#FFF"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvHomeSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica_neue"
+            android:textColor="#FFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tvHomeTitle"
+            app:layout_constraintStart_toStartOf="@+id/tvHomeTitle"
+            tools:text="Versão 2.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout style="@style/container_edit_text">
+
+                    <TextView
+                        style="@style/label_edit_text"
+                        android:text="Veículo" />
+
+                    <EditText
+                        android:id="@+id/etCar"
+                        style="@style/field_edit_text"
+                        tools:text="Cruze Sport LTZ" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/container_section">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Consumo médio" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/container_edit_text_inline">
+
+                    <LinearLayout style="@style/container_edit_text_inline_left">
+
+                        <TextView
+                            style="@style/label_edit_text"
+                            android:text="KM/L Gasolina" />
+
+                        <EditText
+                            android:id="@+id/etKmGasoline"
+                            style="@style/field_edit_text_number"
+                            tools:text="10.6" />
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/container_edit_text_inline_right">
+
+                        <TextView
+                            style="@style/label_edit_text"
+                            android:text="@string/label_km_ethanol" />
+
+                        <EditText
+                            android:id="@+id/etKmEthanol"
+                            style="@style/field_edit_text_number"
+                            tools:text="6.1" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout style="@style/container_section">
+
+                    <TextView
+                        style="@style/section_title"
+                        android:text="@string/label_gas_station" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/container_edit_text_inline">
+
+                    <LinearLayout style="@style/container_edit_text_inline_left">
+
+                        <TextView
+                            style="@style/label_edit_text"
+                            android:text="@string/label_price_gasoline" />
+
+                        <EditText
+                            android:id="@+id/etPriceGasoline"
+                            style="@style/field_edit_text_number"
+                            tools:text="10.6" />
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/container_edit_text_inline_right">
+
+                        <TextView
+                            style="@style/label_edit_text"
+                            android:text="@string/label_price_ethanol" />
+
+                        <EditText
+                            android:id="@+id/etPriceEthanol"
+                            style="@style/field_edit_text_number"
+                            tools:text="6.1" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btCalculate"
+                    style="@style/button"
+                    android:layout_marginTop="24dp"
+                    android:text="Calcular" />
+
+                <TextView
+                    android:id="@+id/btClear"
+                    style="@style/link"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="Limpar" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

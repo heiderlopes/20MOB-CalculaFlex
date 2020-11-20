@@ -85,4 +85,49 @@
         <item name="android:textStyle">bold</item>
         <item name="android:background">@drawable/button_selector</item>
     </style>
+
+    <style name="container_edit_text_inline">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="container_edit_text_inline_left" parent="container_edit_text">
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_weight">0.5</item>
+    </style>
+
+    <style name="container_edit_text_inline_right" parent="container_edit_text">
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_weight">0.5</item>
+    </style>
+
+    <style name="section_title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="container_section">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+
+    <style name="icon_section">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="field_edit_text_number" parent="field_edit_text">
+        <item name="android:maxLength">5</item>
+        <item name="android:inputType">number</item>
+    </style>
+
 </resources>
