@@ -34,6 +34,64 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809175294580:android:2baf1d1991dc96eaa9a721",
+        "android_client_info": {
+          "package_name": "br.com.calculaflex.heiderlopes20mob.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809175294580-3rm99101acn9pgd26htenrefd292grtu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6ApFKmNmgNjbEc0URQ0tas3L2Wq9ythc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809175294580-3rm99101acn9pgd26htenrefd292grtu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809175294580:android:21f477a2b9e4401aa9a721",
+        "android_client_info": {
+          "package_name": "br.com.calculaflex.heiderlopes20mob.hml"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809175294580-3rm99101acn9pgd26htenrefd292grtu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6ApFKmNmgNjbEc0URQ0tas3L2Wq9ythc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809175294580-3rm99101acn9pgd26htenrefd292grtu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

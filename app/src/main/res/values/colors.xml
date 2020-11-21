@@ -21,4 +21,6 @@
     <color name="linkTextColor">@color/primaryTextColor</color>
     <color name="linkTextColorClicked">#E49C0C</color>
     <color name="linkTextColorDisabled">#666</color>
+
+    <color name="ic_launcher_background">#FFF</color>
 </resources>
