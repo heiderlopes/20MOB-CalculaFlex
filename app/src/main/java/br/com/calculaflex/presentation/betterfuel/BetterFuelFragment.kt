@@ -23,6 +23,7 @@ import br.com.calculaflex.extensions.getDouble
 import br.com.calculaflex.extensions.getString
 import br.com.calculaflex.presentation.base.auth.BaseAuthFragment
 import br.com.calculaflex.presentation.watchers.DecimalTextWatcher
+import br.com.calculaflexlib.components.customdialog.CustomDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -118,16 +119,29 @@ class BetterFuelFragment : BaseAuthFragment() {
 
     private fun registerObserver() {
         betterFuelViewModel.calculateState.observe(viewLifecycleOwner, Observer {
-            when(it) {
+            when (it) {
                 is RequestState.Success -> {
                     hideLoading()
 
-                    val betterFuelMessage = when(it.data) {
-                        FuelType.GASOLINE -> "Melhor abastecer com gasolina"
-                        FuelType.ETHANOL -> "Melhor abastecer com álcool"
+                    val betterFuelMessage = when (it.data) {
+                        FuelType.GASOLINE -> Pair("Gasolina", "Melhor abastecer com gasolina")
+                        FuelType.ETHANOL -> Pair("Álcool", "Melhor abastecer com álcool")
                     }
 
-                    showMessage(betterFuelMessage)
+                    val (title, subtitle) = betterFuelMessage
+
+                    val customDialog = CustomDialog()
+
+                    customDialog.showDialog(
+                        requireActivity(),
+                        R.drawable.ic_logo_splash,
+                        title,
+                        subtitle,
+                        "OK",
+                        View.OnClickListener { customDialog.dismissDialog() },
+                        false
+                    )
+
                 }
                 is RequestState.Error -> {
                     hideLoading()

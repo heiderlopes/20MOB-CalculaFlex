@@ -19,7 +19,11 @@ import br.com.calculaflex.domain.usecases.GetDashboardMenuUseCase
 import br.com.calculaflex.domain.usecases.GetUserLoggedUseCase
 import br.com.calculaflex.extensions.startDeeplink
 import br.com.calculaflex.presentation.base.auth.BaseAuthFragment
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -126,6 +130,13 @@ class HomeFragment : BaseAuthFragment() {
     }
 
     private fun clickItem(item: DashboardItem) {
+
+        Firebase.analytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM) {
+            param(FirebaseAnalytics.Param.ITEM_ID, item.feature)
+            param(FirebaseAnalytics.Param.ITEM_NAME, item.feature)
+            param(FirebaseAnalytics.Param.CONTENT_TYPE, "click_button")
+        }
+
         item.onDisabledListener.let {
             it?.invoke(requireContext())
         }
@@ -134,6 +145,8 @@ class HomeFragment : BaseAuthFragment() {
             when (item.feature) {
                 "SIGN_OUT" -> {
                     //chamar o metodo de logout
+                    Firebase.crashlytics.setCustomKey("userLogged", true)
+                    throw RuntimeException("Test Crash") // Force a crash
                 }
                 "ETHANOL_OR_GASOLINE" -> {
                     startDeeplink("${item.action.deeplink}?id=${homeViewModel.userLogged?.id}")
