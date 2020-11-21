@@ -16,6 +16,7 @@ class BaseAuthViewModel(
     val userLoggedState = MutableLiveData<RequestState<User>>()
 
     fun getUserLogged () {
+        userLoggedState.value = RequestState.Loading
         viewModelScope.launch {
             userLoggedState.value = getUserLoggedUseCase.getUserLogged()
         }
